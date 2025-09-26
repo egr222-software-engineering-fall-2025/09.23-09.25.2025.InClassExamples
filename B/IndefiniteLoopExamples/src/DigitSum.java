@@ -11,8 +11,16 @@ public class DigitSum {
     }
 
     public static int digitSum(int num) {
-		
-		// do stuff here to figure out the sum of the digits
+		if (num ==0) return 0; // handle trivial solution
+        if (num < 0) num *= -1; //make it a positive integer
+
+        int sum = 0;
+
+        while (num != 0) {
+            int d = num % 10; //extract the last digit
+            sum += d;   // process the lastdigit
+            num /= 10; // truncate (or "chop off") the last digit (because it is already processed)
+        }
 
         return sum;
     }
